@@ -59,10 +59,10 @@ class PuppeteerManager {
     }
 
     this._browser = await puppeteer.launch({
+      headless: !this._options.headful,
       ...(this._options.puppeteerLaunchOptions || {}),
       pipe: false,
       devtools: false,
-      headless: !this._options.headful,
       // The default value for `chromePath` is determined by yargs using the `getChromiumPath` method.
       executablePath: this._options.chromePath,
     });
